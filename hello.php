@@ -89,3 +89,27 @@ function dolly_css() {
 }
 
 add_action( 'admin_head', 'dolly_css' );
+
+
+/**
+ * Initialize the plugin tracker
+ *
+ * @return void
+ */
+function appsero_init_tracker_hello_inspiration() {
+
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/appsero/src/Client.php';
+    }
+
+    $client = new Appsero\Client( 'e1b01219-b4f9-4341-ae18-aa68437c0da5', 'Hello Inspiration', __FILE__ );
+
+    // Active insights
+    $client->insights()->init();
+
+    // Active automatic updater
+    $client->updater();
+
+}
+
+appsero_init_tracker_hello_inspiration();
