@@ -90,6 +90,7 @@ function dolly_css() {
 
 add_action( 'admin_head', 'dolly_css' );
 
+composer require appsero/client
 
 /**
  * Initialize the plugin tracker
